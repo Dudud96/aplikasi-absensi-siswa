@@ -217,7 +217,7 @@ const App = () => {
 
         students.forEach(student => {
             htmlContent += `<tr><td>${student}</td>`; // No newline after <tr>
-            monthlyDaF.forEach(date => {
+            monthlyDates.forEach(date => {
                 const status = attendance[date]?.[student] || '-';
                 htmlContent += `<td>${status.charAt(0)}</td>`;
             });
@@ -264,7 +264,7 @@ const App = () => {
             <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
                 <div className="flex flex-col items-center justify-center gap-2 mb-8"> {/* Adjusted for no icon */}
                     <h1 className="text-4xl font-extrabold text-gray-800">Daftar Hadir Siswa</h1>
-                    <p className="text-xl text-gray-700 mt-2">Kelas 6B tess</p>
+                    <p className="text-xl text-gray-700 mt-2">Kelas 6B</p>
                     <p className="text-xl text-gray-700">SD Negeri 003 Gunung Tabur</p>
                 </div>
 
