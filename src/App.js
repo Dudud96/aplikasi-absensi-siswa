@@ -197,7 +197,7 @@ const App = () => {
             <body>
                 <div style="text-align: center; margin-bottom: 20px;">
                     <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 5px;">Rekap Absensi Siswa Bulan ${month}/${year}</h1>
-                    <p style="font-size: 18px;">Kelas 6B</p>
+                    <p style="font-size: 18px;">Kelas 6B tes</p>
                     <p style="font-size: 18px;">SD Negeri 003 Gunung Tabur</p>
                 </div>
                 <table>
@@ -264,7 +264,7 @@ const App = () => {
             <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
                 <div className="flex flex-col items-center justify-center gap-2 mb-8"> {/* Adjusted for no icon */}
                     <h1 className="text-4xl font-extrabold text-gray-800">Daftar Hadir Siswa</h1>
-                    <p className="text-xl text-gray-700 mt-2">Kelas 6B</p>
+                    <p className="text-xl text-gray-700 mt-2">Kelas 6B tes</p>
                     <p className="text-xl text-gray-700">SD Negeri 003 Gunung Tabur</p>
                 </div>
 
