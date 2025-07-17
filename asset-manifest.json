@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/aplikasi-absensi-siswa/static/js/main.f8913118.js",
+    "main.js": "/aplikasi-absensi-siswa/static/js/main.11456d44.js",
     "index.html": "/aplikasi-absensi-siswa/index.html",
-    "main.f8913118.js.map": "/aplikasi-absensi-siswa/static/js/main.f8913118.js.map"
+    "main.11456d44.js.map": "/aplikasi-absensi-siswa/static/js/main.11456d44.js.map"
   },
   "entrypoints": [
-    "static/js/main.f8913118.js"
+    "static/js/main.11456d44.js"
   ]
 }
