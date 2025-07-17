@@ -171,58 +171,59 @@ const App = () => {
             <html>
             <head>
                 <title>Rekap Absensi Siswa Bulanan</title>
-                <script src="https://cdn.tailwindcss.com"></script>
                 <style>
-                    body { font-family: 'Inter', sans-serif; margin: 20px; }
-                    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-                    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                    body { font-family: sans-serif; margin: 20px; }
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin-top: 20px;
+                    }
+                    th, td {
+                        border: 1px solid black; /* Simple black border */
+                        padding: 8px;
+                        text-align: left;
+                    }
                     th { background-color: #f2f2f2; }
                     .summary-cell { font-weight: bold; }
                     .signature-block { text-align: right; margin-top: 40px; }
                     @media print {
                         .no-print { display: none; }
+                        table { page-break-after: auto; }
+                        tr { page-break-inside: avoid; page-break-after: auto; }
+                        td, th { page-break-inside: avoid; }
                     }
                 </style>
             </head>
             <body>
-                <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 5px; margin-bottom: 20px;">
-                    <h1 class="text-2xl font-bold mb-1">Rekap Absensi Siswa Bulan ${month}/${year}</h1>
-                    <p class="text-lg">Kelas 6B</p>
-                    <p class="text-lg">SD Negeri 003 Gunung Tabur</p>
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 5px;">Rekap Absensi Siswa Bulan ${month}/${year}</h1>
+                    <p style="font-size: 18px;">Kelas 6B tes</p>
+                    <p style="font-size: 18px;">SD Negeri 003 Gunung Tabur</p>
                 </div>
-                <table class="min-w-full bg-white rounded-lg shadow-md">
+                <table>
                     <thead>
                         <tr>
-                            <th class="py-3 px-4 bg-gray-200 text-gray-700 font-semibold rounded-tl-lg">Nama Siswa</th>
-        `;
+                            <th>Nama Siswa</th>`; // No newline after <thead><tr>
 
         monthlyDates.forEach(date => {
-            htmlContent += `<th class="py-3 px-4 bg-gray-200 text-gray-700 font-semibold">${date.split('-')[2]}</th>`;
+            htmlContent += `<th>${date.split('-')[2]}</th>`;
         });
 
         htmlContent += `
-                            <th class="py-3 px-4 bg-blue-200 text-blue-800 font-semibold summary-cell">Hadir</th>
-                            <th class="py-3 px-4 bg-yellow-200 text-yellow-800 font-semibold summary-cell">Sakit</th>
-                            <th class="py-3 px-4 bg-purple-200 text-purple-800 font-semibold summary-cell">Izin</th>
-                            <th class="py-3 px-4 bg-red-200 text-red-800 font-semibold summary-cell rounded-tr-lg">Alpha</th>
+                            <th>Hadir</th><th>Sakit</th><th>Izin</th><th>Alpha</th>
                         </tr>
                     </thead>
-                    <tbody>
-        `;
+                    <tbody>`; // No newline before <tbody>
 
         students.forEach(student => {
-            htmlContent += `<tr><td class="py-2 px-4 border-b border-gray-200 text-gray-800 font-medium">${student}</td>`;
+            htmlContent += `<tr><td>${student}</td>`; // No newline after <tr>
             monthlyDates.forEach(date => {
                 const status = attendance[date]?.[student] || '-';
-                htmlContent += `<td class="py-2 px-4 border-b border-gray-200 text-center">${status.charAt(0)}</td>`;
+                htmlContent += `<td>${status.charAt(0)}</td>`;
             });
             const summary = getMonthlySummary(student, currentYearMonth);
             htmlContent += `
-                <td class="py-2 px-4 border-b border-blue-200 summary-cell">${summary.hadir}</td>
-                <td class="py-2 px-4 border-b border-yellow-200 text-yellow-800 font-bold text-center">${summary.sakit}</td>
-                <td class="py-2 px-4 border-b border-purple-200 text-purple-800 font-bold text-center">${summary.izin}</td>
-                <td class="py-2 px-4 border-b border-red-200 text-red-800 font-bold text-center">${summary.alpha}</td>
-            </tr>`;
+                <td>${summary.hadir}</td><td>${summary.sakit}</td><td>${summary.izin}</td><td>${summary.alpha}</td></tr>`; // No newline before </tr>
         });
 
         htmlContent += `
